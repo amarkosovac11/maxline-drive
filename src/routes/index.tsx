@@ -42,7 +42,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import logoAsset from "@/assets/maxline-logo.png.asset.json";
+import logo from "@/assets/logo.jpg";
 import heroImg from "@/assets/hero-driving.jpg";
 import aboutImg from "@/assets/about-car.jpg";
 import car1 from "@/assets/car-1.jpg";
@@ -237,15 +237,15 @@ const CONTACT = {
 // Komponente
 // -------------------------------------------------------------
 
-function Logo({ className = "h-11" }: { className?: string }) {
+function Logo({ className = "h-11 w-32" }: { className?: string }) {
   return (
-    <img
-      src={logoAsset.url}
-      alt="Autoškola Maxline"
-      className={className + " w-auto"}
-      width={160}
-      height={44}
-    />
+    <span className={`relative block shrink-0 overflow-hidden ${className}`}>
+      <img
+        src={logo}
+        alt="Autoškola Maxline"
+        className="absolute left-1/2 top-1/2 h-auto w-[112%] max-w-none -translate-x-1/2 -translate-y-[54%]"
+      />
+    </span>
   );
 }
 
@@ -271,7 +271,7 @@ function Navbar() {
     >
       <div className="container-x flex h-18 items-center justify-between py-3">
         <a href="#pocetna" className="flex items-center gap-2 shrink-0">
-          <Logo className="h-11" />
+          <Logo className="h-11 w-32 sm:h-12 sm:w-36" />
         </a>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -1005,7 +1005,7 @@ function Footer() {
       <div className="container-x py-14 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-1">
           <div className="bg-white rounded-xl p-3 inline-block">
-            <Logo className="h-12" />
+            <Logo className="h-12 w-36" />
           </div>
           <p className="mt-5 text-sm leading-relaxed text-white/70">
             Autoškola Maxline – profesionalna obuka i podrška do vaše vozačke
