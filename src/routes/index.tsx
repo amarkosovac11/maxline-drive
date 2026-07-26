@@ -42,7 +42,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import logo from "@/assets/logo.jpg";
 import heroImg from "@/assets/hero-driving.jpg";
 import aboutImg from "@/assets/about-car.jpg";
 import car1 from "@/assets/car-1.jpg";
@@ -62,11 +61,11 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Autoškola Maxline Sarajevo – Siguran put do vozačke dozvole" },
+      { title: "Autoškola SB Sarajevo – Siguran put do vozačke dozvole" },
       {
         name: "description",
         content:
-          "Autoškola Maxline iz Sarajeva: profesionalna obuka, moderna vozila, iskusni instruktori i podrška do položenog ispita.",
+          "Autoškola SB iz Sarajeva: profesionalna obuka, moderna vozila, iskusni instruktori i podrška do položenog ispita.",
       },
     ],
   }),
@@ -218,17 +217,17 @@ const TESTIMONIALS = [
   },
   {
     name: "Nejra M.",
-    text: "Osjećala sam se sigurno tokom cijele obuke. Hvala Maxline timu na podršci!",
+    text: "Osjećala sam se sigurno tokom cijele obuke. Hvala SB timu na podršci!",
   },
 ];
 
 const CONTACT = {
   phone: "+387 33 000 000",
-  email: "info@autoskola-maxline.ba",
+  email: "info@autoskola-sb.ba",
   address: "Ulica primjer 12, 71000 Sarajevo",
   hours: "Pon – Pet: 09:00 – 19:00 · Sub: 09:00 – 14:00",
-  instagram: "https://instagram.com/autoskola.maxline",
-  facebook: "https://facebook.com/autoskola.maxline",
+  instagram: "https://instagram.com/autoskola.sb",
+  facebook: "https://facebook.com/autoskola.sb",
   mapsEmbed:
     "https://www.google.com/maps?q=Sarajevo&output=embed",
 };
@@ -239,12 +238,22 @@ const CONTACT = {
 
 function Logo({ className = "h-11 w-32" }: { className?: string }) {
   return (
-    <span className={`relative block shrink-0 overflow-hidden ${className}`}>
-      <img
-        src={logo}
-        alt="Autoškola Maxline"
-        className="absolute left-1/2 top-1/2 h-auto w-[112%] max-w-none -translate-x-1/2 -translate-y-[54%]"
-      />
+    <span
+      className={`flex shrink-0 items-center justify-center gap-1 ${className}`}
+      role="img"
+      aria-label="Autoškola SB"
+    >
+      <span className="flex flex-col items-end leading-none">
+        <span className="mr-0.5 text-[0.42em] font-semibold italic tracking-[0.14em] text-foreground">
+          AUTO
+        </span>
+        <span className="font-heading text-[1.45em] font-extrabold italic tracking-[-0.08em] text-primary">
+          SB
+        </span>
+      </span>
+      <span className="mt-auto mb-[0.18em] border-b-2 border-brand-blue pb-[0.08em] text-[0.48em] font-semibold italic tracking-wide text-foreground">
+        ŠKOLA
+      </span>
     </span>
   );
 }
@@ -364,7 +373,7 @@ function Hero() {
             </Button>
           </div>
           <p className="mt-6 text-sm text-muted-foreground italic">
-            Maxline – mjesto gdje snovi počinju.
+            SB – mjesto gdje snovi počinju.
           </p>
         </div>
 
@@ -373,7 +382,7 @@ function Hero() {
           <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border border-border">
             <img
               src={heroImg}
-              alt="Kandidat i instruktor Autoškole Maxline u vozilu za obuku"
+              alt="Kandidat i instruktor Autoškole SB u vozilu za obuku"
               width={1600}
               height={1000}
               className="w-full h-auto object-cover aspect-[16/10]"
@@ -429,8 +438,8 @@ function Features() {
     <section className="py-20 lg:py-24 bg-secondary/50">
       <div className="container-x">
         <SectionHeading
-          eyebrow="Zašto Maxline"
-          title="Zašto izabrati Autoškolu Maxline"
+          eyebrow="Zašto SB"
+          title="Zašto izabrati Autoškolu SB"
           text="Fokusirani smo na vašu sigurnost, samopouzdanje i pravilno ponašanje u saobraćaju."
           center
         />
@@ -463,7 +472,7 @@ function About() {
           <div className="rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border border-border">
             <img
               src={aboutImg}
-              alt="Vozilo Autoškole Maxline"
+              alt="Vozilo Autoškole SB"
               width={1200}
               height={900}
               loading="lazy"
@@ -478,7 +487,7 @@ function About() {
         <div className="order-1 lg:order-2">
           <SectionHeading eyebrow="O nama" title="Vaš partner do vozačke dozvole" />
           <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Autoškola Maxline pruža kvalitetnu i profesionalnu obuku kandidata,
+            Autoškola SB pruža kvalitetnu i profesionalnu obuku kandidata,
             sa fokusom na sigurnost, samopouzdanje i pravilno ponašanje u
             saobraćaju. Naš cilj nije samo da položite vozački ispit, već da
             postanete siguran i odgovoran vozač.
@@ -711,7 +720,7 @@ function Gallery() {
             >
               <img
                 src={src}
-                alt={`Galerija Autoškole Maxline ${i + 1}`}
+                alt={`Galerija Autoškole SB ${i + 1}`}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -777,7 +786,7 @@ function CtaBanner() {
               Spremni ste da započnete svoj put do vozačke dozvole?
             </h2>
             <p className="mt-4 text-lg opacity-90">
-              Kontaktirajte Autoškolu Maxline i saznajte sve informacije o
+              Kontaktirajte Autoškolu SB i saznajte sve informacije o
               prijavi, terminima i obuci.
             </p>
             <div className="mt-8">
@@ -988,7 +997,7 @@ function Contact() {
         <div className="mt-10 rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-soft)]">
           <iframe
             src={CONTACT.mapsEmbed}
-            title="Google mapa – Autoškola Maxline"
+            title="Google mapa – Autoškola SB"
             className="w-full h-[360px] border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -1008,7 +1017,7 @@ function Footer() {
             <Logo className="h-12 w-36" />
           </div>
           <p className="mt-5 text-sm leading-relaxed text-white/70">
-            Autoškola Maxline – profesionalna obuka i podrška do vaše vozačke
+            Autoškola SB – profesionalna obuka i podrška do vaše vozačke
             dozvole u Sarajevu.
           </p>
         </div>
@@ -1074,7 +1083,7 @@ function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="container-x py-5 text-xs text-white/60 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div>© {new Date().getFullYear()} Autoškola Maxline. Sva prava zadržana.</div>
+          <div>© {new Date().getFullYear()} Autoškola SB. Sva prava zadržana.</div>
           <div>Sarajevo, Bosna i Hercegovina</div>
         </div>
       </div>

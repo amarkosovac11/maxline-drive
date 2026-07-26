@@ -77,18 +77,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Autoškola Maxline Sarajevo – Siguran put do vozačke dozvole" },
+      { title: "Autoškola SB Sarajevo – Siguran put do vozačke dozvole" },
       {
         name: "description",
         content:
-          "Autoškola Maxline iz Sarajeva – profesionalna obuka, iskusni instruktori, moderna vozila i fleksibilni termini za B kategoriju.",
+          "Autoškola SB iz Sarajeva – profesionalna obuka, iskusni instruktori, moderna vozila i fleksibilni termini za B kategoriju.",
       },
-      { name: "author", content: "Autoškola Maxline" },
-      { property: "og:title", content: "Autoškola Maxline Sarajevo" },
+      { name: "author", content: "Autoškola SB" },
+      { property: "og:title", content: "Autoškola SB Sarajevo" },
       {
         property: "og:description",
         content:
-          "Profesionalna obuka i podrška do vozačke dozvole. Prijavite se u Autoškolu Maxline.",
+          "Profesionalna obuka i podrška do vozačke dozvole. Prijavite se u Autoškolu SB.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
