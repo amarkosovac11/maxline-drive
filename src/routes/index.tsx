@@ -52,7 +52,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Autoškola SB Sarajevo – Uči za život, ne za ispit" },
+      { title: "Autoškola SB Sarajevo – UČI ZA ŽIVOT, NE ZA ISPIT." },
       {
         name: "description",
         content:
@@ -310,8 +310,8 @@ function Hero() {
             <ShieldCheck className="h-3.5 w-3.5" /> Autoškola u Sarajevu
           </span>
           <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-foreground">
-            Uči za život,{" "}
-            <span className="whitespace-nowrap text-primary">ne za ispit</span>
+            UČI ZA ŽIVOT,{" "}
+            <span className="whitespace-nowrap text-primary">NE ZA ISPIT.</span>
           </h1>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
             Profesionalna obuka, iskusni instruktori i podrška tokom svakog
