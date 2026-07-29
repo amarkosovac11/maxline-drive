@@ -22,7 +22,13 @@ import {
   Star,
   ArrowRight,
   Send,
+  FileText,
+  Smartphone,
+  Scale,
+  FolderOpen,
+  ExternalLink,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { Button } from "@/components/ui/button";
@@ -41,6 +47,12 @@ import {
   DialogContent,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 import heroImg from "@/assets/hero-driving.jpg";
 import aboutImg from "@/assets/about-car.jpg";
@@ -73,6 +85,7 @@ const NAV = [
   { href: "#vozila", label: "Vozila" },
   { href: "#instruktori", label: "Instruktori" },
   { href: "#galerija", label: "Galerija" },
+  { href: "#materijali", label: "Materijali" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
@@ -188,12 +201,79 @@ const TESTIMONIALS = [
   },
 ];
 
+type LearningResource = {
+  title: string;
+  description: string;
+  buttonLabel: string;
+  url: string;
+  icon: LucideIcon;
+};
+
+const LEARNING_RESOURCES: LearningResource[] = [
+  {
+    title: "Testovna pitanja – Oblast I",
+    description:
+      "Katalog testovnih pitanja iz prve oblasti za pripremu teoretskog dijela vozačkog ispita.",
+    buttonLabel: "Pogledaj pitanja – Oblast I",
+    url: "https://mo.ks.gov.ba/sites/mo.ks.gov.ba/files/2024-07/katalog%20testovnih%20pitanja-Oblast%20I.pdf",
+    icon: FileText,
+  },
+  {
+    title: "Testovna pitanja – Oblast II",
+    description:
+      "Katalog testovnih pitanja iz druge oblasti za pripremu teoretskog dijela vozačkog ispita.",
+    buttonLabel: "Pogledaj pitanja – Oblast II",
+    url: "https://mo.ks.gov.ba/sites/mo.ks.gov.ba/files/2024-07/Katalog%20testovnih%20pitanja-Oblast%20II.pdf",
+    icon: FileText,
+  },
+  {
+    title: "Testovna pitanja – Oblast III",
+    description:
+      "Katalog testovnih pitanja iz treće oblasti za pripremu teoretskog dijela vozačkog ispita.",
+    buttonLabel: "Pogledaj pitanja – Oblast III",
+    url: "https://mo.ks.gov.ba/sites/mo.ks.gov.ba/files/2024-07/katalog%20testovnih%20pitanja-Oblast%20III.pdf",
+    icon: FileText,
+  },
+  {
+    title: "Testovna pitanja – Oblast IV",
+    description:
+      "Katalog testovnih pitanja iz četvrte oblasti za pripremu teoretskog dijela vozačkog ispita.",
+    buttonLabel: "Pogledaj pitanja – Oblast IV",
+    url: "https://mo.ks.gov.ba/sites/mo.ks.gov.ba/files/2024-07/Katalog%20testovnih%20pitanja-Oblast%20IV.pdf",
+    icon: FileText,
+  },
+  {
+    title: "Aplikacija za testove vožnje",
+    description:
+      "Android aplikacija za vježbanje testova i pripremu za polaganje vozačkog ispita.",
+    buttonLabel: "Preuzmi Android aplikaciju",
+    url: "https://play.google.com/store/apps/details?id=com.drivertestovi",
+    icon: Smartphone,
+  },
+  {
+    title: "Zakon o osnovama bezbjednosti saobraćaja",
+    description:
+      "Zakon o osnovama bezbjednosti saobraćaja na putevima u Bosni i Hercegovini, zajedno sa izmjenama i dopunama.",
+    buttonLabel: "Otvori zakon",
+    url: "https://bihamk.ba/assets/files/1767707983-zakon-o-osnovima-bezbjednosti-saobracaja-na-putevima-u-bih-sa-izmjenama-i-dopunama.pdf",
+    icon: Scale,
+  },
+  {
+    title: "Dodatni materijal",
+    description:
+      "Dodatni materijal koji je instruktor pripremio ili preporučio kandidatima.",
+    buttonLabel: "Otvori dodatni materijal",
+    url: "https://share.google/Pqm1knbOVJ2M2CXgk",
+    icon: FolderOpen,
+  },
+];
+
 const CONTACT = {
   phone: "033 815-115",
   phone2: "062 436 001",
   email: "sbmaxline@gmail.com",
   address: "Gradačačka 1, Merkur Shopping Center, 71000 Sarajevo",
-  hours: "Pon – Pet: 09:00 – 19:00 · Sub: 09:00 – 14:00",
+  hours: "Pon – Pet: 08:30 – 16:30\nSubota, nedjelja i praznici: neradni",
   instagram: "https://www.instagram.com/sbmaxline/",
   facebook: "https://www.facebook.com/autoskola.maxline/",
   mapsEmbed:
@@ -811,6 +891,62 @@ function Gallery() {
   );
 }
 
+function LearningMaterials() {
+  return (
+    <section id="materijali" className="scroll-mt-20 py-20 lg:py-24 bg-secondary/50">
+      <div className="container-x">
+        <SectionHeading
+          eyebrow="Priprema za ispit"
+          title="Korisni materijali za kandidate"
+          text="Na jednom mjestu pronađite testovna pitanja, zakonske propise, aplikacije i druge materijale koji vam mogu pomoći tokom pripreme za vozački ispit."
+          center
+        />
+
+        <Accordion
+          type="single"
+          collapsible
+          className="mx-auto mt-12 max-w-4xl space-y-3"
+        >
+          {LEARNING_RESOURCES.map((resource, index) => (
+            <AccordionItem
+              key={resource.title}
+              value={`resource-${index}`}
+              className="overflow-hidden rounded-2xl border border-border bg-card px-5 shadow-[var(--shadow-soft)] sm:px-6"
+            >
+              <AccordionTrigger className="gap-4 py-5 text-base font-bold hover:no-underline sm:text-lg">
+                <span className="flex min-w-0 items-center gap-3 text-left">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
+                    <resource.icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <span>{resource.title}</span>
+                </span>
+              </AccordionTrigger>
+              <AccordionContent className="pb-6 pl-0 sm:pl-[3.25rem]">
+                <p className="max-w-2xl leading-relaxed text-muted-foreground">
+                  {resource.description}
+                </p>
+                <Button
+                  asChild
+                  className="mt-5 h-auto min-h-11 w-full whitespace-normal bg-primary px-5 py-3 text-center font-semibold text-primary-foreground shadow-[var(--shadow-red)] hover:bg-primary-dark sm:w-auto"
+                >
+                  <a
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {resource.buttonLabel}
+                    <ExternalLink className="ml-2 h-4 w-4 shrink-0" />
+                  </a>
+                </Button>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </section>
+  );
+}
+
 function Testimonials() {
   return (
     <section className="py-20 lg:py-24">
@@ -1078,7 +1214,7 @@ function Contact() {
                       {c.value}
                     </a>
                   ) : (
-                    <div className="mt-0.5 font-semibold text-foreground break-words">{c.value}</div>
+                    <div className="mt-0.5 font-semibold text-foreground break-words whitespace-pre-line">{c.value}</div>
                   )}
                 </div>
               </div>
@@ -1173,7 +1309,7 @@ function Footer() {
             </li>
             <li className="flex items-start gap-2">
               <Clock className="h-4 w-4 mt-0.5 shrink-0" />
-              <span>{CONTACT.hours}</span>
+              <span className="whitespace-pre-line">{CONTACT.hours}</span>
             </li>
           </ul>
         </div>
@@ -1224,6 +1360,7 @@ function Index() {
         <Services />
         <VehiclesAndInstructor />
         <Gallery />
+        <LearningMaterials />
         <Testimonials />
         <CtaBanner />
         <Contact />
