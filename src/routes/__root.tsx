@@ -77,7 +77,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Autoškola SB Sarajevo – Siguran put do vozačke dozvole" },
+      { title: "Autoškola SB Sarajevo – Uči za život, ne za ispit" },
       {
         name: "description",
         content:

@@ -44,6 +44,7 @@ import {
 
 import heroImg from "@/assets/hero-driving.jpg";
 import aboutImg from "@/assets/about-car.jpg";
+import logoNew from "@/assets/logoNew.jpg";
 import car1 from "@/assets/car-1.jpg";
 import car2 from "@/assets/car-2.jpg";
 import car3 from "@/assets/car-3.jpg";
@@ -61,7 +62,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Autoškola SB Sarajevo – Siguran put do vozačke dozvole" },
+      { title: "Autoškola SB Sarajevo – Uči za život, ne za ispit" },
       {
         name: "description",
         content:
@@ -186,9 +187,9 @@ const VEHICLES = [
 const INSTRUCTORS = [
   {
     img: ins1,
-    name: "Emir Hodžić",
+    name: "Safet Borčilo",
     role: "Instruktor vožnje – B kategorija",
-    bio: "12+ godina iskustva u obuci kandidata. Smiren, precizan i posvećen sigurnosti.",
+    bio: "Iskusan instruktor posvećen sigurnoj i kvalitetnoj obuci. Strpljivim pristupom pomaže svakom kandidatu da stekne znanje i samopouzdanje za volanom.",
   },
   {
     img: ins2,
@@ -222,14 +223,15 @@ const TESTIMONIALS = [
 ];
 
 const CONTACT = {
-  phone: "+387 33 000 000",
-  email: "info@autoskola-sb.ba",
-  address: "Ulica primjer 12, 71000 Sarajevo",
+  phone: "033 815-115",
+  phone2: "062 436 001",
+  email: "sbmaxline@gmail.com",
+  address: "Gradačačka 1, Merkur Shopping Center, 71000 Sarajevo",
   hours: "Pon – Pet: 09:00 – 19:00 · Sub: 09:00 – 14:00",
-  instagram: "https://instagram.com/autoskola.sb",
-  facebook: "https://facebook.com/autoskola.sb",
+  instagram: "https://www.instagram.com/sbmaxline/",
+  facebook: "https://www.facebook.com/autoskola.maxline/",
   mapsEmbed:
-    "https://www.google.com/maps?q=Sarajevo&output=embed",
+    "https://www.google.com/maps?q=Grada%C4%8Da%C4%8Dka%201%2C%20Sarajevo&output=embed",
 };
 
 // -------------------------------------------------------------
@@ -239,21 +241,17 @@ const CONTACT = {
 function Logo({ className = "h-11 w-32" }: { className?: string }) {
   return (
     <span
-      className={`flex shrink-0 items-center justify-center gap-1 ${className}`}
+      className={`relative block shrink-0 overflow-hidden rounded-md bg-[#faf9f5] ${className}`}
       role="img"
-      aria-label="Autoškola SB"
+      aria-label="Autoškola SB Max Line"
     >
-      <span className="flex flex-col items-end leading-none">
-        <span className="mr-0.5 text-[0.42em] font-semibold italic tracking-[0.14em] text-foreground">
-          AUTO
-        </span>
-        <span className="font-heading text-[1.45em] font-extrabold italic tracking-[-0.08em] text-primary">
-          SB
-        </span>
-      </span>
-      <span className="mt-auto mb-[0.18em] border-b-2 border-brand-blue pb-[0.08em] text-[0.48em] font-semibold italic tracking-wide text-foreground">
-        ŠKOLA
-      </span>
+      <img
+        src={logoNew}
+        alt=""
+        width={1024}
+        height={1024}
+        className="absolute inset-0 h-full w-full scale-[1.08] object-cover"
+      />
     </span>
   );
 }
@@ -280,7 +278,7 @@ function Navbar() {
     >
       <div className="container-x flex h-18 items-center justify-between py-3">
         <a href="#pocetna" className="flex items-center gap-2 shrink-0">
-          <Logo className="h-11 w-32 sm:h-12 sm:w-36" />
+          <Logo className="h-12 w-36 sm:h-14 sm:w-40" />
         </a>
 
         <nav className="hidden lg:flex items-center gap-1">
@@ -346,8 +344,8 @@ function Hero() {
             <ShieldCheck className="h-3.5 w-3.5" /> Autoškola u Sarajevu
           </span>
           <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-foreground">
-            Siguran put do{" "}
-            <span className="text-primary">vozačke dozvole</span>
+            Uči za život,{" "}
+            <span className="whitespace-nowrap text-primary">ne za ispit</span>
           </h1>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
             Profesionalna obuka, iskusni instruktori i podrška tokom svakog
@@ -697,6 +695,96 @@ function Instructors() {
   );
 }
 
+function VehiclesAndInstructor() {
+  const vehicle = VEHICLES[0];
+  const instructor = INSTRUCTORS[0];
+
+  return (
+    <section
+      id="vozila"
+      className="relative py-20 lg:py-24 bg-secondary/50"
+    >
+      <span id="instruktori" className="absolute top-0" aria-hidden="true" />
+      <div className="container-x">
+        <SectionHeading
+          eyebrow="Vozilo i instruktor"
+          title="Sigurna obuka uz iskusnog instruktora"
+          text="Upoznajte instruktora koji će vas voditi kroz obuku i vozilo prilagođeno sigurnoj i ugodnoj vožnji."
+          center
+        />
+
+        <div className="mt-14 mx-auto grid max-w-5xl md:grid-cols-2 gap-6 items-start">
+          <article className="rounded-2xl overflow-hidden bg-card border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] transition-shadow">
+            <div className="aspect-[4/3] overflow-hidden bg-muted">
+              <img
+                src={instructor.img}
+                alt={instructor.name}
+                loading="lazy"
+                width={800}
+                height={600}
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-lg font-bold text-foreground">
+                {instructor.name}
+              </h3>
+              <div className="mt-1 text-sm text-brand-blue font-medium">
+                {instructor.role}
+              </div>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                {instructor.bio}
+              </p>
+              <Button
+                asChild
+                variant="outline"
+                className="mt-5 w-full border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-brand-blue-foreground"
+              >
+                <a href="#kontakt">
+                  <Users className="h-4 w-4 mr-2" /> Kontakt
+                </a>
+              </Button>
+            </div>
+          </article>
+
+          <article className="rounded-2xl overflow-hidden bg-card border border-border shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-card)] transition-shadow">
+            <div className="aspect-[4/3] overflow-hidden bg-muted">
+              <img
+                src={vehicle.img}
+                alt={vehicle.name}
+                loading="lazy"
+                width={1000}
+                height={750}
+                className="h-full w-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div className="p-6">
+              <h3 className="text-lg font-bold text-foreground">
+                {vehicle.name}
+              </h3>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                {vehicle.features.map((feature) => {
+                  const Icon =
+                    feature.toLowerCase().includes("klim") ? Wind :
+                    feature.toLowerCase().includes("održa") ||
+                    feature.toLowerCase().includes("servisi") ? Wrench :
+                    feature.toLowerCase().includes("sigur") ? ShieldCheck : Car;
+                  return (
+                    <li key={feature} className="flex items-center gap-2">
+                      <Icon className="h-4 w-4 text-brand-blue shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Gallery() {
   const [active, setActive] = useState<string | null>(null);
 
@@ -808,6 +896,7 @@ function CtaBanner() {
 }
 
 function ContactForm() {
+  const formRecipient = "amarkosovac11@gmail.com";
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -816,6 +905,7 @@ function ContactForm() {
     message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function validate() {
     const e: Record<string, string> = {};
@@ -831,13 +921,53 @@ function ContactForm() {
     return e;
   }
 
-  function onSubmit(ev: React.FormEvent) {
+  async function onSubmit(ev: React.FormEvent) {
     ev.preventDefault();
     const e = validate();
     setErrors(e);
     if (Object.keys(e).length > 0) return;
-    toast.success("Hvala! Vaš upit je zabilježen. Kontaktiraćemo Vas uskoro.");
-    setForm({ name: "", phone: "", email: "", category: "", message: "" });
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(
+        `https://formsubmit.co/ajax/${formRecipient}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            "Ime i prezime": form.name.trim(),
+            Telefon: form.phone.trim(),
+            Email: form.email.trim(),
+            Kategorija: form.category,
+            Poruka: form.message.trim(),
+            _replyto: form.email.trim(),
+            _subject: "Novi upit sa stranice Autoškole SB Max Line",
+            _template: "table",
+          }),
+        },
+      );
+
+      const result = await response.json();
+      if (!response.ok || result.success === false) {
+        throw new Error("Slanje nije uspjelo");
+      }
+
+      toast.success(
+        "Hvala! Vaš upit je poslan. Kontaktiraćemo Vas uskoro.",
+      );
+      setForm({ name: "", phone: "", email: "", category: "", message: "" });
+      setErrors({});
+    } catch {
+      toast.error(
+        "Upit trenutno nije moguće poslati. Pokušajte ponovo ili nas kontaktirajte telefonom.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -920,10 +1050,11 @@ function ContactForm() {
       <Button
         type="submit"
         size="lg"
+        disabled={isSubmitting}
         className="w-full sm:w-auto bg-primary hover:bg-primary-dark text-primary-foreground font-semibold shadow-[var(--shadow-red)]"
       >
         <Send className="h-4 w-4 mr-2" />
-        Pošalji upit
+        {isSubmitting ? "Šaljem..." : "Pošalji upit"}
       </Button>
     </form>
   );
@@ -947,7 +1078,8 @@ function Contact() {
 
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: Phone, label: "Telefon", value: CONTACT.phone, href: `tel:${CONTACT.phone.replace(/\s/g, "")}` },
+              { icon: Phone, label: "Telefon", value: CONTACT.phone, href: `tel:${CONTACT.phone.replace(/[\s-]/g, "")}` },
+              { icon: Phone, label: "Mobilni telefon", value: CONTACT.phone2, href: `tel:${CONTACT.phone2.replace(/\s/g, "")}` },
               { icon: Mail, label: "E-mail", value: CONTACT.email, href: `mailto:${CONTACT.email}` },
               { icon: MapPin, label: "Adresa", value: CONTACT.address },
               { icon: Clock, label: "Radno vrijeme", value: CONTACT.hours },
@@ -1014,7 +1146,7 @@ function Footer() {
       <div className="container-x py-14 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-1">
           <div className="bg-white rounded-xl p-3 inline-block">
-            <Logo className="h-12 w-36" />
+            <Logo className="h-14 w-40" />
           </div>
           <p className="mt-5 text-sm leading-relaxed text-white/70">
             Autoškola SB – profesionalna obuka i podrška do vaše vozačke
@@ -1040,7 +1172,15 @@ function Footer() {
           <ul className="mt-4 space-y-2 text-sm text-white/70">
             <li className="flex items-start gap-2">
               <Phone className="h-4 w-4 mt-0.5 shrink-0" />
-              <span>{CONTACT.phone}</span>
+              <span>
+                <a href={`tel:${CONTACT.phone.replace(/[\s-]/g, "")}`} className="hover:text-white">
+                  {CONTACT.phone}
+                </a>
+                <br />
+                <a href={`tel:${CONTACT.phone2.replace(/\s/g, "")}`} className="hover:text-white">
+                  {CONTACT.phone2}
+                </a>
+              </span>
             </li>
             <li className="flex items-start gap-2">
               <Mail className="h-4 w-4 mt-0.5 shrink-0" />
@@ -1101,8 +1241,7 @@ function Index() {
         <About />
         <Process />
         <Services />
-        <Vehicles />
-        <Instructors />
+        <VehiclesAndInstructor />
         <Gallery />
         <Testimonials />
         <CtaBanner />
