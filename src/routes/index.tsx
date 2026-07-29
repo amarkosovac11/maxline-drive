@@ -46,17 +46,7 @@ import heroImg from "@/assets/hero-driving.jpg";
 import aboutImg from "@/assets/about-car.jpg";
 import logoNew from "@/assets/logoNew.jpg";
 import car1 from "@/assets/car-1.jpg";
-import car2 from "@/assets/car-2.jpg";
-import car3 from "@/assets/car-3.jpg";
 import ins1 from "@/assets/instructor-1.jpg";
-import ins2 from "@/assets/instructor-2.jpg";
-import ins3 from "@/assets/instructor-3.jpg";
-import g1 from "@/assets/gallery-1.jpg";
-import g2 from "@/assets/gallery-2.jpg";
-import g3 from "@/assets/gallery-3.jpg";
-import g4 from "@/assets/gallery-4.jpg";
-import g5 from "@/assets/gallery-5.jpg";
-import g6 from "@/assets/gallery-6.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -162,26 +152,6 @@ const VEHICLES = [
       "Sigurno i jednostavno za upravljanje",
     ],
   },
-  {
-    img: car2,
-    name: "Vozilo za obuku – komfor",
-    features: [
-      "Duplirane komande",
-      "Redovno servisirano",
-      "Klimatizovano",
-      "Ugodno za duže vožnje",
-    ],
-  },
-  {
-    img: car3,
-    name: "Vozilo za obuku – kompakt",
-    features: [
-      "Idealno za početnike",
-      "Odlična preglednost",
-      "Klimatizovano",
-      "Lako parkiranje",
-    ],
-  },
 ];
 
 const INSTRUCTORS = [
@@ -191,21 +161,17 @@ const INSTRUCTORS = [
     role: "Instruktor vožnje – B kategorija",
     bio: "Iskusan instruktor posvećen sigurnoj i kvalitetnoj obuci. Strpljivim pristupom pomaže svakom kandidatu da stekne znanje i samopouzdanje za volanom.",
   },
-  {
-    img: ins2,
-    name: "Adnan Bećirović",
-    role: "Instruktor vožnje – B kategorija",
-    bio: "Više od 15 godina iskustva. Poznat po strpljivom pristupu i jasnim uputama.",
-  },
-  {
-    img: ins3,
-    name: "Lejla Kurtović",
-    role: "Predavač teorijske nastave",
-    bio: "Diplomirani inženjer saobraćaja. Predavanja čini razumljivim i zanimljivim.",
-  },
 ];
 
-const GALLERY = [g1, g2, g3, g4, g5, g6];
+const galleryImages = import.meta.glob<string>("../../images/*.jpg", {
+  eager: true,
+  query: "?url",
+  import: "default",
+});
+
+const GALLERY = Object.entries(galleryImages)
+  .sort(([first], [second]) => first.localeCompare(second))
+  .map(([, image]) => image);
 
 const TESTIMONIALS = [
   {
@@ -787,6 +753,8 @@ function VehiclesAndInstructor() {
 
 function Gallery() {
   const [active, setActive] = useState<string | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const visibleImages = showAll ? GALLERY : GALLERY.slice(0, 6);
 
   return (
     <section id="galerija" className="py-20 lg:py-24 bg-secondary/50">
@@ -797,7 +765,7 @@ function Gallery() {
           center
         />
         <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-          {GALLERY.map((src, i) => (
+          {visibleImages.map((src, i) => (
             <button
               key={src}
               onClick={() => setActive(src)}
@@ -816,6 +784,19 @@ function Gallery() {
             </button>
           ))}
         </div>
+        {GALLERY.length > 6 && (
+          <div className="mt-8 flex justify-center">
+            <Button
+              type="button"
+              variant="outline"
+              size="lg"
+              onClick={() => setShowAll((current) => !current)}
+              className="min-w-44 border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-brand-blue-foreground font-semibold"
+            >
+              {showAll ? "Prikaži manje" : `Prikaži više (${GALLERY.length - 6})`}
+            </Button>
+          </div>
+        )}
       </div>
 
       <Dialog open={!!active} onOpenChange={(o) => !o && setActive(null)}>
