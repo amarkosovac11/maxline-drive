@@ -54,7 +54,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import heroImg from "@/assets/hero-driving.jpg";
 import aboutImg from "@/assets/about-car.jpg";
 import logoNew from "@/assets/logoNew.jpg";
 import car1 from "@/assets/car-1.jpg";
@@ -542,8 +541,8 @@ function Hero() {
           <div className="absolute -inset-4 lg:-inset-6 bg-gradient-to-br from-primary/20 via-brand-blue/10 to-transparent rounded-3xl blur-2xl" />
           <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border border-border">
             <img
-              src={heroImg}
-              alt="Kandidat i instruktor Autoškole SB u vozilu za obuku"
+              src={logoNew}
+              alt="Logo Autoškole SB Maxline"
               width={902}
               height={561}
               fetchPriority="high"
