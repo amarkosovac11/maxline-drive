@@ -56,6 +56,7 @@ import {
 
 import logoNew from "@/assets/logoNew.jpg";
 import car1 from "@/assets/car-1.jpg";
+import car2 from "@/assets/car2.jpg";
 import ins1 from "@/assets/instructor-1.jpg";
 
 export const Route = createFileRoute("/")({
@@ -632,7 +633,7 @@ function About() {
         <div className="relative order-2 lg:order-1">
           <div className="rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border border-border">
             <img
-              src={car1}
+              src={car2}
               alt="Vozilo Autoškole SB Maxline za obuku vozača u Sarajevu"
               width={902}
               height={667}
