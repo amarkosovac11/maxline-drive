@@ -93,9 +93,9 @@ export const Route = createFileRoute("/")({
             {
               "@type": "ImageObject",
               "@id": "https://sbmaxline.com/#primaryimage",
-              url: "https://sbmaxline.com/og-image.jpg",
-              width: 902,
-              height: 561,
+              url: "https://sbmaxline.com/logo.jpg",
+              width: 1024,
+              height: 1024,
             },
             {
               "@type": "DrivingSchool",

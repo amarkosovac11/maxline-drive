@@ -111,14 +111,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:locale", content: "bs_BA" },
       {
         property: "og:image",
-        content: "https://sbmaxline.com/og-image.jpg",
+        content: "https://sbmaxline.com/logo.jpg",
       },
       {
         property: "og:image:alt",
         content: "Autoškola SB Maxline Sarajevo",
       },
-      { property: "og:image:width", content: "902" },
-      { property: "og:image:height", content: "561" },
+      { property: "og:image:width", content: "1024" },
+      { property: "og:image:height", content: "1024" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
@@ -131,7 +131,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         name: "twitter:image",
-        content: "https://sbmaxline.com/og-image.jpg",
+        content: "https://sbmaxline.com/logo.jpg",
       },
       {
         name: "twitter:image:alt",
