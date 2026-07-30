@@ -504,8 +504,11 @@ function Hero() {
             <ShieldCheck className="h-3.5 w-3.5" /> Autoškola u Sarajevu
           </span>
           <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-foreground">
-            Autoškola SB Maxline Sarajevo: UČI ZA ŽIVOT,{" "}
-            <span className="whitespace-nowrap text-primary">NE ZA ISPIT.</span>
+            <span className="mb-3 block text-xl font-bold leading-tight text-brand-blue sm:text-2xl">
+              Autoškola SB Maxline Sarajevo
+            </span>
+            <span className="block">UČI ZA ŽIVOT,</span>
+            <span className="block text-primary">NE ZA ISPIT.</span>
           </h1>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
             Profesionalna obuka, iskusni instruktori i podrška tokom svakog
