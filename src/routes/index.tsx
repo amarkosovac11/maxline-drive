@@ -63,12 +63,48 @@ import ins1 from "@/assets/instructor-1.jpg";
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
-    meta: [
-      { title: "Autoškola SB Sarajevo – UČI ZA ŽIVOT, NE ZA ISPIT." },
+    scripts: [
       {
-        name: "description",
-        content:
-          "Autoškola SB iz Sarajeva: profesionalna obuka, moderna vozila, iskusni instruktori i podrška do položenog ispita.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "DrivingSchool",
+          name: "Autoškola SB Maxline",
+          url: "https://sbmaxline.com/",
+          logo: "https://sbmaxline.com/logo.jpg",
+          image: "https://sbmaxline.com/og-image.jpg",
+          telephone: ["+38733815115", "+38762436001"],
+          email: "sbmaxline@gmail.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Gradačačka 1, Merkur Shopping Center",
+            postalCode: "71000",
+            addressLocality: "Sarajevo",
+            addressCountry: "BA",
+          },
+          areaServed: {
+            "@type": "City",
+            name: "Sarajevo",
+          },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "https://schema.org/Monday",
+                "https://schema.org/Tuesday",
+                "https://schema.org/Wednesday",
+                "https://schema.org/Thursday",
+                "https://schema.org/Friday",
+              ],
+              opens: "08:30",
+              closes: "16:30",
+            },
+          ],
+          sameAs: [
+            "https://www.facebook.com/autoskola.maxline/",
+            "https://www.instagram.com/sbmaxline/",
+          ],
+        }),
       },
     ],
   }),
@@ -278,6 +314,8 @@ const CONTACT = {
   facebook: "https://www.facebook.com/autoskola.maxline/",
   mapsEmbed:
     "https://www.google.com/maps?q=Grada%C4%8Da%C4%8Dka%201%2C%20Sarajevo&output=embed",
+  mapsUrl:
+    "https://www.google.com/maps/search/?api=1&query=Grada%C4%8Da%C4%8Dka%201%2C%20Merkur%20Shopping%20Center%2C%2071000%20Sarajevo",
 };
 
 // -------------------------------------------------------------
@@ -390,7 +428,7 @@ function Hero() {
             <ShieldCheck className="h-3.5 w-3.5" /> Autoškola u Sarajevu
           </span>
           <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-foreground">
-            UČI ZA ŽIVOT,{" "}
+            Autoškola SB Maxline Sarajevo: UČI ZA ŽIVOT,{" "}
             <span className="whitespace-nowrap text-primary">NE ZA ISPIT.</span>
           </h1>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
@@ -516,7 +554,7 @@ function About() {
           <div className="rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border border-border">
             <img
               src={aboutImg}
-              alt="Vozilo Autoškole SB"
+              alt="Vozilo Autoškole SB Maxline za obuku vozača u Sarajevu"
               width={1200}
               height={900}
               loading="lazy"
@@ -710,7 +748,7 @@ function Instructors() {
               <div className="aspect-[4/5] overflow-hidden bg-muted">
                 <img
                   src={p.img}
-                  alt={p.name}
+                  alt={`${p.name}, instruktor vožnje B kategorije`}
                   loading="lazy"
                   width={800}
                   height={1000}
@@ -764,7 +802,7 @@ function VehiclesAndInstructor() {
             <div className="aspect-[4/3] overflow-hidden bg-muted">
               <img
                 src={instructor.img}
-                alt={instructor.name}
+                alt={`${instructor.name}, instruktor vožnje B kategorije`}
                 loading="lazy"
                 width={800}
                 height={600}
@@ -856,7 +894,7 @@ function Gallery() {
             >
               <img
                 src={src}
-                alt={`Galerija Autoškole SB ${i + 1}`}
+                alt={`Fotografija iz Autoškole SB Maxline u Sarajevu ${i + 1}`}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -883,7 +921,11 @@ function Gallery() {
         <DialogContent className="max-w-4xl p-0 overflow-hidden bg-transparent border-0 shadow-none">
           <DialogTitle className="sr-only">Fotografija galerije</DialogTitle>
           {active && (
-            <img src={active} alt="Fotografija" className="w-full h-auto rounded-xl" />
+            <img
+              src={active}
+              alt="Fotografija iz Autoškole SB Maxline u Sarajevu"
+              className="w-full h-auto rounded-xl"
+            />
           )}
         </DialogContent>
       </Dialog>
@@ -1198,7 +1240,7 @@ function Contact() {
               { icon: Phone, label: "Telefon", value: CONTACT.phone, href: `tel:${CONTACT.phone.replace(/[\s-]/g, "")}` },
               { icon: Phone, label: "Mobilni telefon", value: CONTACT.phone2, href: `tel:${CONTACT.phone2.replace(/\s/g, "")}` },
               { icon: Mail, label: "E-mail", value: CONTACT.email, href: `mailto:${CONTACT.email}` },
-              { icon: MapPin, label: "Adresa", value: CONTACT.address },
+              { icon: MapPin, label: "Adresa", value: CONTACT.address, href: CONTACT.mapsUrl },
               { icon: Clock, label: "Radno vrijeme", value: CONTACT.hours },
             ].map((c) => (
               <div key={c.label} className="rounded-2xl bg-card border border-border p-5 flex gap-4 items-start shadow-[var(--shadow-soft)]">
@@ -1272,7 +1314,7 @@ function Footer() {
         </div>
 
         <div>
-          <h4 className="font-bold text-white">Brzi linkovi</h4>
+          <h2 className="font-bold text-white">Brzi linkovi</h2>
           <ul className="mt-4 space-y-2 text-sm">
             {NAV.map((n) => (
               <li key={n.href}>
@@ -1285,7 +1327,7 @@ function Footer() {
         </div>
 
         <div>
-          <h4 className="font-bold text-white">Kontakt</h4>
+          <h2 className="font-bold text-white">Kontakt</h2>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
             <li className="flex items-start gap-2">
               <Phone className="h-4 w-4 mt-0.5 shrink-0" />
@@ -1301,11 +1343,20 @@ function Footer() {
             </li>
             <li className="flex items-start gap-2">
               <Mail className="h-4 w-4 mt-0.5 shrink-0" />
-              <span className="break-all">{CONTACT.email}</span>
+              <a href={`mailto:${CONTACT.email}`} className="break-all hover:text-white">
+                {CONTACT.email}
+              </a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-              <span>{CONTACT.address}</span>
+              <a
+                href={CONTACT.mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                {CONTACT.address}
+              </a>
             </li>
             <li className="flex items-start gap-2">
               <Clock className="h-4 w-4 mt-0.5 shrink-0" />
@@ -1315,7 +1366,7 @@ function Footer() {
         </div>
 
         <div>
-          <h4 className="font-bold text-white">Društvene mreže</h4>
+          <h2 className="font-bold text-white">Društvene mreže</h2>
           <div className="mt-4 flex gap-3">
             <a
               href={CONTACT.instagram}
