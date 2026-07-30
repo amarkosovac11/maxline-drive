@@ -81,9 +81,9 @@ export const Route = createFileRoute("/")({
               "@type": "WebPage",
               "@id": "https://sbmaxline.com/#webpage",
               url: "https://sbmaxline.com/",
-              name: "Autoškola Sarajevo | SB Maxline – Obuka vozača B kategorije",
+              name: "Autoškola SB Maxline Sarajevo | Obuka vozača B kategorije",
               description:
-                "Autoškola SB Maxline Sarajevo pruža profesionalnu obuku vozača B kategorije, teorijsku nastavu, časove vožnje i podršku do polaganja ispita.",
+                "Autoškola SB Maxline u Sarajevu pruža profesionalnu teorijsku i praktičnu obuku vozača B kategorije uz iskusnog instruktora i podršku do ispita.",
               isPartOf: { "@id": "https://sbmaxline.com/#website" },
               about: { "@id": "https://sbmaxline.com/#organization" },
               primaryImageOfPage: {
@@ -106,7 +106,7 @@ export const Route = createFileRoute("/")({
               url: "https://sbmaxline.com/",
               logo: "https://sbmaxline.com/logo.jpg",
               image: { "@id": "https://sbmaxline.com/#primaryimage" },
-              telephone: ["+38733815115", "+38762436001"],
+              telephone: "+38733815115",
               email: "sbmaxline@gmail.com",
               address: {
                 "@type": "PostalAddress",
@@ -503,13 +503,13 @@ function Hero() {
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 text-brand-blue px-3 py-1 text-xs font-semibold uppercase tracking-wide">
             <ShieldCheck className="h-3.5 w-3.5" /> Autoškola u Sarajevu
           </span>
-          <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] text-foreground">
-            <span className="mb-3 block text-xl font-bold leading-tight text-brand-blue sm:text-2xl">
-              Autoškola SB Maxline Sarajevo
-            </span>
+          <h1 className="mt-5 text-xl font-bold leading-tight text-brand-blue sm:text-2xl">
+            Autoškola SB Maxline Sarajevo
+          </h1>
+          <div className="mt-3 text-4xl font-extrabold leading-[1.05] text-foreground sm:text-5xl lg:text-6xl">
             <span className="block">UČI ZA ŽIVOT,</span>
             <span className="block text-primary">NE ZA ISPIT.</span>
-          </h1>
+          </div>
           <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
             Profesionalna obuka, iskusni instruktori i podrška tokom svakog
             koraka do vaše vozačke dozvole.
