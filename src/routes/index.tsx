@@ -72,17 +72,17 @@ export const Route = createFileRoute("/")({
               "@type": "WebSite",
               "@id": "https://sbmaxline.com/#website",
               url: "https://sbmaxline.com/",
-              name: "Autoškola SB Maxline",
-              alternateName: "SB Maxline",
+              name: "Autoškola SB Max Line",
+              alternateName: "SB Max Line",
               inLanguage: "bs",
             },
             {
               "@type": "WebPage",
               "@id": "https://sbmaxline.com/#webpage",
               url: "https://sbmaxline.com/",
-              name: "Autoškola SB Maxline Sarajevo | Obuka vozača B kategorije",
+              name: "Autoškola SB Max Line Sarajevo | Obuka vozača B kategorije",
               description:
-                "Autoškola SB Maxline u Sarajevu pruža profesionalnu teorijsku i praktičnu obuku vozača B kategorije uz iskusnog instruktora i podršku do ispita.",
+                "Autoškola SB Max Line u Sarajevu pruža profesionalnu teorijsku i praktičnu obuku vozača B kategorije uz iskusnog instruktora i podršku do ispita.",
               isPartOf: { "@id": "https://sbmaxline.com/#website" },
               about: { "@id": "https://sbmaxline.com/#organization" },
               primaryImageOfPage: {
@@ -100,8 +100,8 @@ export const Route = createFileRoute("/")({
             {
               "@type": "DrivingSchool",
               "@id": "https://sbmaxline.com/#organization",
-              name: "Autoškola SB Maxline",
-              alternateName: "SB Maxline",
+              name: "Autoškola SB Max Line",
+              alternateName: "SB Max Line",
               url: "https://sbmaxline.com/",
               logo: "https://sbmaxline.com/logo.jpg",
               image: { "@id": "https://sbmaxline.com/#primaryimage" },
@@ -307,7 +307,7 @@ const TESTIMONIALS = [
   },
   {
     name: "Nejra M.",
-    text: "Osjećala sam se sigurno tokom cijele obuke. Hvala SB timu na podršci!",
+    text: "Osjećala sam se sigurno tokom cijele obuke. Hvala SB Max Line timu na podršci!",
   },
 ];
 
@@ -503,7 +503,7 @@ function Hero() {
             <ShieldCheck className="h-3.5 w-3.5" /> Autoškola u Sarajevu
           </span>
           <h1 className="mt-5 text-xl font-bold leading-tight text-brand-blue sm:text-2xl">
-            Autoškola SB Maxline Sarajevo
+            Autoškola SB Max Line Sarajevo
           </h1>
           <div className="mt-3 text-4xl font-extrabold leading-[1.05] text-foreground sm:text-5xl lg:text-6xl">
             <span className="block">UČI ZA ŽIVOT,</span>
@@ -533,7 +533,7 @@ function Hero() {
             </Button>
           </div>
           <p className="mt-6 text-sm text-muted-foreground italic">
-            SB – mjesto gdje snovi počinju.
+            SB Max Line – mjesto gdje snovi počinju.
           </p>
         </div>
 
@@ -542,7 +542,7 @@ function Hero() {
           <div className="relative rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border border-border">
             <img
               src={logoNew}
-              alt="Logo Autoškole SB Maxline"
+              alt="Logo Autoškole SB Max Line"
               width={902}
               height={561}
               fetchPriority="high"
@@ -600,8 +600,8 @@ function Features() {
     <section className="py-20 lg:py-24 bg-secondary/50">
       <div className="container-x">
         <SectionHeading
-          eyebrow="Zašto SB"
-          title="Zašto izabrati Autoškolu SB"
+          eyebrow="Zašto SB Max Line"
+          title="Zašto izabrati Autoškolu SB Max Line"
           text="Fokusirani smo na vašu sigurnost, samopouzdanje i pravilno ponašanje u saobraćaju."
           center
         />
@@ -634,7 +634,7 @@ function About() {
           <div className="rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border border-border">
             <img
               src={car2}
-              alt="Vozilo Autoškole SB Maxline za obuku vozača u Sarajevu"
+              alt="Vozilo Autoškole SB Max Line za obuku vozača u Sarajevu"
               width={902}
               height={667}
               loading="lazy"
@@ -650,7 +650,7 @@ function About() {
         <div className="order-1 lg:order-2">
           <SectionHeading eyebrow="O nama" title="Vaš partner do vozačke dozvole" />
           <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
-            Autoškola SB pruža kvalitetnu i profesionalnu obuku kandidata,
+            Autoškola SB Max Line pruža kvalitetnu i profesionalnu obuku kandidata,
             sa fokusom na sigurnost, samopouzdanje i pravilno ponašanje u
             saobraćaju. Naš cilj nije samo da položite vozački ispit, već da
             postanete siguran i odgovoran vozač.
@@ -979,7 +979,7 @@ function Gallery() {
             >
               <img
                 src={image.src}
-                alt={`Fotografija iz Autoškole SB Maxline u Sarajevu ${i + 1}`}
+                alt={`Fotografija iz Autoškole SB Max Line u Sarajevu ${i + 1}`}
                 width={image.width}
                 height={image.height}
                 loading="lazy"
@@ -1011,7 +1011,7 @@ function Gallery() {
           {active && (
             <img
               src={active.src}
-              alt="Fotografija iz Autoškole SB Maxline u Sarajevu"
+              alt="Fotografija iz Autoškole SB Max Line u Sarajevu"
               width={active.width}
               height={active.height}
               decoding="async"
@@ -1124,7 +1124,7 @@ function CtaBanner() {
               Spremni ste da započnete svoj put do vozačke dozvole?
             </h2>
             <p className="mt-4 text-lg opacity-90">
-              Kontaktirajte Autoškolu SB i saznajte sve informacije o
+              Kontaktirajte Autoškolu SB Max Line i saznajte sve informacije o
               prijavi, terminima i obuci.
             </p>
             <div className="mt-8">
@@ -1146,7 +1146,7 @@ function CtaBanner() {
 }
 
 function ContactForm() {
-  const formRecipient = "amarkosovac11@gmail.com";
+  const formRecipient = "sbmaxline@gmail.com";
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -1379,7 +1379,7 @@ function Contact() {
         <div className="mt-10 rounded-3xl overflow-hidden border border-border shadow-[var(--shadow-soft)]">
           <iframe
             src={CONTACT.mapsEmbed}
-            title="Google mapa – Autoškola SB"
+            title="Google mapa – Autoškola SB Max Line"
             className="w-full h-[360px] border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -1399,7 +1399,7 @@ function Footer() {
             <Logo className="h-14 w-40" />
           </div>
           <p className="mt-5 text-sm leading-relaxed text-white/70">
-            Autoškola SB – profesionalna obuka i podrška do vaše vozačke
+            Autoškola SB Max Line – profesionalna obuka i podrška do vaše vozačke
             dozvole u Sarajevu.
           </p>
         </div>
@@ -1482,7 +1482,7 @@ function Footer() {
       </div>
       <div className="border-t border-white/10">
         <div className="container-x py-5 text-xs text-white/60 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <div>© {new Date().getFullYear()} Autoškola SB. Sva prava zadržana.</div>
+          <div>© {new Date().getFullYear()} Autoškola SB Max Line. Sva prava zadržana.</div>
           <div>Sarajevo, Bosna i Hercegovina</div>
         </div>
       </div>
