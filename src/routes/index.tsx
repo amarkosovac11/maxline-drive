@@ -54,7 +54,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import aboutImg from "@/assets/about-car.jpg";
 import logoNew from "@/assets/logoNew.jpg";
 import car1 from "@/assets/car-1.jpg";
 import ins1 from "@/assets/instructor-1.jpg";
@@ -633,7 +632,7 @@ function About() {
         <div className="relative order-2 lg:order-1">
           <div className="rounded-3xl overflow-hidden shadow-[var(--shadow-card)] border border-border">
             <img
-              src={aboutImg}
+              src={car1}
               alt="Vozilo Autoškole SB Maxline za obuku vozača u Sarajevu"
               width={902}
               height={667}
