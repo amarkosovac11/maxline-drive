@@ -79,25 +79,31 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         title:
-          "Autoškola SB Maxline Sarajevo | Obuka vozača B kategorije",
+          "Autoškola Sarajevo | SB Maxline – Obuka vozača B kategorije",
       },
       {
         name: "description",
         content:
-          "Autoškola SB Maxline u Sarajevu pruža profesionalnu obuku vozača B kategorije, iskusne instruktore i podršku tokom cijelog procesa polaganja.",
+          "Autoškola SB Maxline Sarajevo pruža profesionalnu obuku vozača B kategorije, teorijsku nastavu, časove vožnje i podršku do polaganja ispita.",
       },
-      { name: "robots", content: "index, follow" },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large",
+      },
       { name: "author", content: "Autoškola SB Maxline" },
+      { name: "geo.region", content: "BA-BIH" },
+      { name: "geo.placename", content: "Sarajevo" },
+      { name: "application-name", content: "Autoškola SB Maxline" },
+      { name: "format-detection", content: "telephone=no" },
       { name: "theme-color", content: "#c72c23" },
       {
         property: "og:title",
-        content:
-          "Autoškola SB Maxline Sarajevo | Obuka vozača B kategorije",
+        content: "Autoškola Sarajevo | SB Maxline",
       },
       {
         property: "og:description",
         content:
-          "Autoškola SB Maxline u Sarajevu pruža profesionalnu obuku vozača B kategorije, iskusne instruktore i podršku tokom cijelog procesa polaganja.",
+          "Autoškola SB Maxline Sarajevo pruža profesionalnu obuku vozača B kategorije, teorijsku nastavu, časove vožnje i podršku do polaganja ispita.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://sbmaxline.com/" },
@@ -107,25 +113,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         property: "og:image",
         content: "https://sbmaxline.com/og-image.jpg",
       },
+      {
+        property: "og:image:alt",
+        content: "Autoškola SB Maxline Sarajevo – obuka vozača",
+      },
+      { property: "og:image:width", content: "902" },
+      { property: "og:image:height", content: "561" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content:
-          "Autoškola SB Maxline Sarajevo | Obuka vozača B kategorije",
+        content: "Autoškola Sarajevo | SB Maxline",
       },
       {
         name: "twitter:description",
         content:
-          "Autoškola SB Maxline u Sarajevu pruža profesionalnu obuku vozača B kategorije, iskusne instruktore i podršku tokom cijelog procesa polaganja.",
+          "Autoškola SB Maxline Sarajevo pruža profesionalnu obuku vozača B kategorije, teorijsku nastavu, časove vožnje i podršku do polaganja ispita.",
       },
       {
         name: "twitter:image",
         content: "https://sbmaxline.com/og-image.jpg",
       },
+      {
+        name: "twitter:image:alt",
+        content: "Autoškola SB Maxline Sarajevo – obuka vozača",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "apple-touch-icon", href: "/logo.jpg" },
+      { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "canonical", href: "https://sbmaxline.com/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },

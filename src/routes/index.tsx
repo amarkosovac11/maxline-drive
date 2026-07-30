@@ -68,41 +68,93 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "DrivingSchool",
-          name: "Autoškola SB Maxline",
-          url: "https://sbmaxline.com/",
-          logo: "https://sbmaxline.com/logo.jpg",
-          image: "https://sbmaxline.com/og-image.jpg",
-          telephone: ["+38733815115", "+38762436001"],
-          email: "sbmaxline@gmail.com",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Gradačačka 1, Merkur Shopping Center",
-            postalCode: "71000",
-            addressLocality: "Sarajevo",
-            addressCountry: "BA",
-          },
-          areaServed: {
-            "@type": "City",
-            name: "Sarajevo",
-          },
-          openingHoursSpecification: [
+          "@graph": [
             {
-              "@type": "OpeningHoursSpecification",
-              dayOfWeek: [
-                "https://schema.org/Monday",
-                "https://schema.org/Tuesday",
-                "https://schema.org/Wednesday",
-                "https://schema.org/Thursday",
-                "https://schema.org/Friday",
-              ],
-              opens: "08:30",
-              closes: "16:30",
+              "@type": "WebSite",
+              "@id": "https://sbmaxline.com/#website",
+              url: "https://sbmaxline.com/",
+              name: "Autoškola SB Maxline",
+              alternateName: "SB Maxline",
+              inLanguage: "bs",
             },
-          ],
-          sameAs: [
-            "https://www.facebook.com/autoskola.maxline/",
-            "https://www.instagram.com/sbmaxline/",
+            {
+              "@type": "WebPage",
+              "@id": "https://sbmaxline.com/#webpage",
+              url: "https://sbmaxline.com/",
+              name: "Autoškola Sarajevo | SB Maxline – Obuka vozača B kategorije",
+              description:
+                "Autoškola SB Maxline Sarajevo pruža profesionalnu obuku vozača B kategorije, teorijsku nastavu, časove vožnje i podršku do polaganja ispita.",
+              isPartOf: { "@id": "https://sbmaxline.com/#website" },
+              about: { "@id": "https://sbmaxline.com/#organization" },
+              primaryImageOfPage: {
+                "@id": "https://sbmaxline.com/#primaryimage",
+              },
+              inLanguage: "bs",
+            },
+            {
+              "@type": "ImageObject",
+              "@id": "https://sbmaxline.com/#primaryimage",
+              url: "https://sbmaxline.com/og-image.jpg",
+              width: 902,
+              height: 561,
+            },
+            {
+              "@type": "DrivingSchool",
+              "@id": "https://sbmaxline.com/#organization",
+              name: "Autoškola SB Maxline",
+              alternateName: "SB Maxline",
+              url: "https://sbmaxline.com/",
+              logo: "https://sbmaxline.com/logo.jpg",
+              image: { "@id": "https://sbmaxline.com/#primaryimage" },
+              telephone: ["+38733815115", "+38762436001"],
+              email: "sbmaxline@gmail.com",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Gradačačka 1, Merkur Shopping Center",
+                postalCode: "71000",
+                addressLocality: "Sarajevo",
+                addressCountry: "BA",
+              },
+              areaServed: [
+                { "@type": "City", name: "Sarajevo" },
+                { "@type": "AdministrativeArea", name: "Novi Grad Sarajevo" },
+                { "@type": "Place", name: "Otoka" },
+              ],
+              openingHoursSpecification: [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  dayOfWeek: [
+                    "https://schema.org/Monday",
+                    "https://schema.org/Tuesday",
+                    "https://schema.org/Wednesday",
+                    "https://schema.org/Thursday",
+                    "https://schema.org/Friday",
+                  ],
+                  opens: "08:30",
+                  closes: "16:30",
+                },
+              ],
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  telephone: "+38733815115",
+                  contactType: "customer service",
+                  availableLanguage: ["bs"],
+                },
+                {
+                  "@type": "ContactPoint",
+                  telephone: "+38762436001",
+                  contactType: "customer service",
+                  availableLanguage: ["bs"],
+                },
+              ],
+              hasMap:
+                "https://www.google.com/maps/search/?api=1&query=Grada%C4%8Da%C4%8Dka%201%2C%20Merkur%20Shopping%20Center%2C%2071000%20Sarajevo",
+              sameAs: [
+                "https://www.facebook.com/autoskola.maxline/",
+                "https://www.instagram.com/sbmaxline/",
+              ],
+            },
           ],
         }),
       },
@@ -218,9 +270,32 @@ const galleryImages = import.meta.glob<string>("../../images/*.jpg", {
   import: "default",
 });
 
+const GALLERY_DIMENSIONS: Record<string, { width: number; height: number }> = {
+  "viber_image_2026-07-29_11-22-55-574.jpg": { width: 1024, height: 1024 },
+  "viber_image_2026-07-29_13-36-06-378.jpg": { width: 1600, height: 1205 },
+  "viber_image_2026-07-29_13-36-06-561.jpg": { width: 1600, height: 1205 },
+  "viber_image_2026-07-29_13-36-06-813.jpg": { width: 1205, height: 1600 },
+  "viber_image_2026-07-29_13-36-06-868.jpg": { width: 1600, height: 1205 },
+  "viber_image_2026-07-29_13-36-08-437.jpg": { width: 903, height: 1599 },
+  "viber_image_2026-07-29_13-36-08-499.jpg": { width: 1600, height: 1600 },
+  "viber_image_2026-07-29_13-36-08-605.jpg": { width: 1600, height: 1200 },
+  "viber_image_2026-07-29_13-36-09-266.jpg": { width: 1600, height: 1200 },
+  "viber_image_2026-07-29_13-36-09-338.jpg": { width: 1600, height: 1205 },
+  "viber_image_2026-07-29_13-36-09-496.jpg": { width: 1600, height: 1200 },
+  "viber_image_2026-07-29_13-36-09-605.jpg": { width: 1600, height: 1200 },
+  "viber_image_2026-07-29_13-36-09-716.jpg": { width: 1600, height: 1200 },
+  "viber_image_2026-07-29_13-36-10-059.jpg": { width: 1205, height: 1600 },
+};
+
 const GALLERY = Object.entries(galleryImages)
   .sort(([first], [second]) => first.localeCompare(second))
-  .map(([, image]) => image);
+  .map(([path, src]) => {
+    const fileName = path.split("/").pop() ?? "";
+    return {
+      src,
+      ...GALLERY_DIMENSIONS[fileName],
+    };
+  });
 
 const TESTIMONIALS = [
   {
@@ -334,6 +409,7 @@ function Logo({ className = "h-11 w-32" }: { className?: string }) {
         alt=""
         width={1024}
         height={1024}
+        decoding="async"
         className="absolute inset-0 h-full w-full scale-[1.08] object-cover"
       />
     </span>
@@ -465,8 +541,10 @@ function Hero() {
             <img
               src={heroImg}
               alt="Kandidat i instruktor Autoškole SB u vozilu za obuku"
-              width={1600}
-              height={1000}
+              width={902}
+              height={561}
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-auto object-cover aspect-[16/10]"
             />
           </div>
@@ -555,9 +633,10 @@ function About() {
             <img
               src={aboutImg}
               alt="Vozilo Autoškole SB Maxline za obuku vozača u Sarajevu"
-              width={1200}
-              height={900}
+              width={902}
+              height={667}
               loading="lazy"
+              decoding="async"
               className="w-full h-auto object-cover aspect-[4/3]"
             />
           </div>
@@ -699,8 +778,9 @@ function Vehicles() {
                   src={v.img}
                   alt={v.name}
                   loading="lazy"
-                  width={1000}
-                  height={750}
+                  width={902}
+                  height={667}
+                  decoding="async"
                   className="h-full w-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -750,8 +830,9 @@ function Instructors() {
                   src={p.img}
                   alt={`${p.name}, instruktor vožnje B kategorije`}
                   loading="lazy"
-                  width={800}
-                  height={1000}
+                  width={1200}
+                  height={1600}
+                  decoding="async"
                   className="h-full w-full object-cover"
                 />
               </div>
@@ -804,8 +885,9 @@ function VehiclesAndInstructor() {
                 src={instructor.img}
                 alt={`${instructor.name}, instruktor vožnje B kategorije`}
                 loading="lazy"
-                width={800}
-                height={600}
+                width={1200}
+                height={1600}
+                decoding="async"
                 className="h-full w-full object-cover"
               />
             </div>
@@ -837,8 +919,9 @@ function VehiclesAndInstructor() {
                 src={vehicle.img}
                 alt={vehicle.name}
                 loading="lazy"
-                width={1000}
-                height={750}
+                width={902}
+                height={667}
+                decoding="async"
                 className="h-full w-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </div>
@@ -870,7 +953,7 @@ function VehiclesAndInstructor() {
 }
 
 function Gallery() {
-  const [active, setActive] = useState<string | null>(null);
+  const [active, setActive] = useState<(typeof GALLERY)[number] | null>(null);
   const [showAll, setShowAll] = useState(false);
   const visibleImages = showAll ? GALLERY : GALLERY.slice(0, 6);
 
@@ -883,19 +966,22 @@ function Gallery() {
           center
         />
         <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-          {visibleImages.map((src, i) => (
+          {visibleImages.map((image, i) => (
             <button
-              key={src}
-              onClick={() => setActive(src)}
+              key={image.src}
+              onClick={() => setActive(image)}
               className={
                 "group relative overflow-hidden rounded-2xl bg-muted border border-border " +
                 (i === 0 ? "col-span-2 md:col-span-2 md:row-span-2 aspect-square md:aspect-auto" : "aspect-square")
               }
             >
               <img
-                src={src}
+                src={image.src}
                 alt={`Fotografija iz Autoškole SB Maxline u Sarajevu ${i + 1}`}
+                width={image.width}
+                height={image.height}
                 loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/20 transition-colors" />
@@ -922,8 +1008,11 @@ function Gallery() {
           <DialogTitle className="sr-only">Fotografija galerije</DialogTitle>
           {active && (
             <img
-              src={active}
+              src={active.src}
               alt="Fotografija iz Autoškole SB Maxline u Sarajevu"
+              width={active.width}
+              height={active.height}
+              decoding="async"
               className="w-full h-auto rounded-xl"
             />
           )}
@@ -1237,8 +1326,8 @@ function Contact() {
 
           <div className="lg:col-span-2 space-y-4">
             {[
-              { icon: Phone, label: "Telefon", value: CONTACT.phone, href: `tel:${CONTACT.phone.replace(/[\s-]/g, "")}` },
-              { icon: Phone, label: "Mobilni telefon", value: CONTACT.phone2, href: `tel:${CONTACT.phone2.replace(/\s/g, "")}` },
+              { icon: Phone, label: "Telefon", value: CONTACT.phone, href: "tel:+38733815115" },
+              { icon: Phone, label: "Mobilni telefon", value: CONTACT.phone2, href: "tel:+38762436001" },
               { icon: Mail, label: "E-mail", value: CONTACT.email, href: `mailto:${CONTACT.email}` },
               { icon: MapPin, label: "Adresa", value: CONTACT.address, href: CONTACT.mapsUrl },
               { icon: Clock, label: "Radno vrijeme", value: CONTACT.hours },
@@ -1332,11 +1421,11 @@ function Footer() {
             <li className="flex items-start gap-2">
               <Phone className="h-4 w-4 mt-0.5 shrink-0" />
               <span>
-                <a href={`tel:${CONTACT.phone.replace(/[\s-]/g, "")}`} className="hover:text-white">
+                <a href="tel:+38733815115" className="hover:text-white">
                   {CONTACT.phone}
                 </a>
                 <br />
-                <a href={`tel:${CONTACT.phone2.replace(/\s/g, "")}`} className="hover:text-white">
+                <a href="tel:+38762436001" className="hover:text-white">
                   {CONTACT.phone2}
                 </a>
               </span>

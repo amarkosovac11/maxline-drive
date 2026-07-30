@@ -1,0 +1,19 @@
+{
+  "name": "Autoškola SB Maxline",
+  "short_name": "SB Maxline",
+  "description": "Autoškola i obuka vozača B kategorije u Sarajevu.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#c72c23",
+  "lang": "bs",
+  "icons": [
+    {
+      "src": "/logo.jpg",
+      "sizes": "1024x1024",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
