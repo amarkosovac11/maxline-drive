@@ -78,8 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
-        title:
-          "Autoškola SB Max Line Sarajevo | Obuka vozača B kategorije",
+        title: "Autoškola SB Maxline Sarajevo",
       },
       {
         name: "description",
@@ -90,15 +89,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         name: "robots",
         content: "index, follow, max-image-preview:large",
       },
-      { name: "author", content: "Autoškola SB Max Line" },
+      { name: "author", content: "Autoškola SB Maxline Sarajevo" },
       { name: "geo.region", content: "BA-BIH" },
       { name: "geo.placename", content: "Sarajevo" },
-      { name: "application-name", content: "Autoškola SB Max Line" },
+      { name: "application-name", content: "Autoškola SB Maxline Sarajevo" },
       { name: "format-detection", content: "telephone=no" },
       { name: "theme-color", content: "#c72c23" },
       {
         property: "og:title",
-        content: "Autoškola SB Max Line Sarajevo",
+        content: "Autoškola SB Maxline Sarajevo",
       },
       {
         property: "og:description",
@@ -107,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://sbmaxline.com/" },
-      { property: "og:site_name", content: "Autoškola SB Max Line" },
+      { property: "og:site_name", content: "Autoškola SB Maxline Sarajevo" },
       { property: "og:locale", content: "bs_BA" },
       {
         property: "og:image",
@@ -115,14 +114,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         property: "og:image:alt",
-        content: "Autoškola SB Max Line Sarajevo",
+        content: "Autoškola SB Maxline Sarajevo",
       },
       { property: "og:image:width", content: "1024" },
       { property: "og:image:height", content: "1024" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "Autoškola SB Max Line Sarajevo",
+        content: "Autoškola SB Maxline Sarajevo",
       },
       {
         name: "twitter:description",
@@ -135,13 +134,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         name: "twitter:image:alt",
-        content: "Autoškola SB Max Line Sarajevo",
+        content: "Autoškola SB Maxline Sarajevo",
       },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
-      { rel: "apple-touch-icon", href: "/logo.jpg" },
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png", sizes: "180x180" },
       { rel: "manifest", href: "/manifest.webmanifest" },
       { rel: "canonical", href: "https://sbmaxline.com/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
